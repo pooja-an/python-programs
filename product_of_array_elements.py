@@ -8,21 +8,26 @@
 
 elements = [1,2,3,4,5]
 
-product = 1
-for i in elements:
-    if i != 0:
-        product *= i
+zeros = elements.count(0)
+if zeros > 1:
+    product_list = [0 for i in range(len(elements))]
+else:    
+    product = 1
 
-product_list = []
+    for i in elements:
+        if i != 0:
+            product *= i
 
-for i in elements:
-    if 0 in elements:
-        if i == 0:
-            product_list.append(int(product))
+    product_list = []
+
+    for i in elements:
+        if 0 in elements:
+            if i == 0:
+                product_list.append(int(product))
+            else:
+                product_list.append(0)
         else:
-            product_list.append(0)
-    else:
-        product_list.append(int(product/i))
+            product_list.append(int(product/i))
 
 print("-------------------")
 print("Using Mathematics: ")
@@ -34,6 +39,11 @@ print("Product array: ", product_list)
 ## Using List comprehension
 
 elements = [1,2,3,4,5]
+product = 1
+for i in elements:
+    if i != 0:
+        product *= i
+        
 new_list = [int(product/i) if i!=0 else int(product) for i in elements]
 
 print("--------------------------")
